@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html class="notloaded">
+<meta charset="utf-8">
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Password Hasher Plus
+ *
+ * The Initial Developer of the Original Code is Eric Woodruff.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s): (none)
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+-->
+<head>
+<link rel="stylesheet" href="style/popup.css"/>
+</head>
+
+<body>
+	<form id="form">
+		<table class="main">
+			<tr>
+				<td colspan="2">${domain}:</td>
+				<td colspan="2" class="domain">
+				  <select id="domain"></select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				  <label for="siteTag">${siteTag}:</label>
+				</td>
+				<td class="info" title="${rememberSiteTag}">
+					<input id="rememberSiteTag" type="checkbox" tabindex="25" title="${rememberSiteTag}">
+				</td>
+				<td>
+					<input id="siteTag" tabindex="10" showpass phNoMarkers>
+				</td>
+				<td>
+					<button id="bump" type="button" tabindex="30">${bump}</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				  <label for="masterKey">${masterKey}:</label>
+				</td>
+				<td class="info">
+					<input id="rememberMasterKey" type="checkbox" tabindex="26">
+				</td>
+				<td class="masterKey">
+					<input id="masterKey" tabindex="20" showpass phNoMarkers>
+				</td>
+				<td>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				  <label for="hashWord">${hashWord}:</label>
+				</td>
+				<td></td>
+				<td>
+					<span class="hashWord">
+						<textarea id="hashWord" readonly="true" tabindex="45" showpass></textarea>
+					</span>
+				</td>
+				<td>
+					<button id="copy" type="button" tabindex="50">${copy}</button>
+					<button id="options" type="button" tabindex="60">${options}</button>
+				</td>
+			</tr>
+		</table>
+		<table id="optionsBox" class="list" hidden="true">
+			<tr>
+				<td>
+					<fieldset class="group grid">
+						<legend>${requirements}</legend>
+						<label checkbox><input id="requireDigit" type="checkbox" tabindex="70"><span>${requireDigit}</span></label>
+						<label checkbox><input id="requireMixedCase" type="checkbox" tabindex="200"><span>${requireMixedCase}</span></label>
+						<label checkbox><input id="requirePunctuation" type="checkbox" tabindex="80"><span>${requirePunctuation}:</span></label>
+						<label id="restrictPunctuation"></label>
+						<span>
+							<label checkbox><input id="sha3" type="checkbox" tabindex="210"><span>${sha3}</span></label>
+							<span class="masterPass">
+								<input id="encryptPass" type="password" placeholder="${encryptPassPlaceholder}" title="${encryptPassTitle}" tabindex="215" phNoMarkers>
+								<button id="encryptSubmit" type="button" tabindex="216">#</button>
+							</span>
+						</span>
+					</fieldset>
+				</td>
+				<td>
+					<fieldset class="group down">
+						<legend for="hashWordSize">${size}</legend>
+						<input id="hashWordSize" type="number" tabindex="220">
+					</fieldset>
+					<fieldset class="group">
+						<legend>${restrictions}</legend>
+						<label checkbox><input id="restrictSpecial" type="checkbox" tabindex="230"><span>${restrictSpecial}</span></label>
+						<label checkbox><input id="restrictDigits" type="checkbox" tabindex="240"><span>${restrictDigits}</span></label>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
+		<div class="bottom">
+			<span>
+				<label checkbox class="delete"><input id="delete" type="checkbox"><span>${delete}</span></label>
+				<label checkbox><input id="save" type="checkbox" checked="true"><span>${save}</span></label>
+			</span>
+			<button id="accept" type="button">${accept}</button>
+			<button id="cancel" type="button">${cancel}</button>
+			<button id="settings" type="button">${settings}</button>
+		</div>
+	</form>
+</body>
+
+<script type="text/javascript" src="lib/sha1.js"></script>
+<script type="text/javascript" src="lib/sha3.js"></script>
+<script type="text/javascript" src="lib/XORCipher.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="popup.js"></script>
+</html>

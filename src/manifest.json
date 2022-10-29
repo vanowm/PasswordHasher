@@ -1,0 +1,66 @@
+{
+	"manifest_version": 3,
+	"name": "Password Hasher+",
+	"version": "2.0.0.1",
+	"description": "Password Hasher (Revived) generates unique password for each website",
+	"default_locale": "en",
+	"icons":
+	{
+		"32": "ui/style/passhash32.png",
+		"64": "ui/style/passhash64.png",
+		"128": "ui/style/passhash128.png"
+	},
+
+	"background":
+	{
+		"service_worker": "service_worker.js"
+	},
+
+	"content_scripts":
+	[
+		{
+			"matches": ["http://*/*", "https://*/*"],
+			"js": ["content/content.js"],
+			"css": ["content/style/passhash.css"],
+			"run_at": "document_end",
+			"all_frames": true
+		}
+	],
+
+	"options_ui":
+	{
+		"page": "ui/options.html"
+	},
+
+	"action":
+	{
+		"browser_style": true,
+		"default_icon":
+		{
+			"19": "ui/style/passhash19.png",
+			"38": "ui/style/passhash38.png"
+		},
+		"default_title": "Password Hasher+",
+		"default_popup": "ui/popup.html"
+	},
+
+	"commands":
+	{
+		"_execute_browser_action":
+		{
+			"suggested_key":
+			{
+				"default": "Ctrl+Shift+6"
+			}
+		}
+	},
+
+	"browser_action_next_to_addressbar": true,
+
+	"permissions": ["storage", "unlimitedStorage", "activeTab", "menus", "<all_urls>", "clipboardWrite"],
+
+	"content_security_policy":
+	{
+		"extension_pages": "object-src 'self'; script-src 'self';"
+	}
+}

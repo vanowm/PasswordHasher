@@ -1,0 +1,95 @@
+{
+   "accept" : {
+      "message" : "Ok"
+   },
+   "bump" : {
+      "message" : "Bump"
+   },
+   "cancel" : {
+      "message" : "Cancel"
+   },
+   "copy" : {
+      "message" : "Clipboard"
+   },
+   "decryptPassPlaceholder" : {
+      "message" : "Decrypt password"
+   },
+   "delete" : {
+      "message" : "Delete"
+   },
+   "domain" : {
+      "message" : "Website"
+   },
+   "encrypted" : {
+      "message" : "Encrypted"
+   },
+   "encryptPassDelete" : {
+      "message" : "Delete encryption password"
+   },
+   "encryptPassPlaceholder" : {
+      "message" : "Encrypt pass"
+   },
+   "encryptPassSet" : {
+      "message" : "Set encryption password"
+   },
+   "encryptPassTitle" : {
+      "message" : "Required in order to remember master key"
+   },
+   "hashWord" : {
+      "message" : "Hash word"
+   },
+   "masterKey" : {
+      "message" : "Master key"
+   },
+   "options" : {
+      "message" : "Options"
+   },
+   "rememberMasterKey" : {
+      "message" : "Remember master key"
+   },
+   "rememberMasterKeyOff" : {
+      "message" : "*requires encrypt pass"
+   },
+   "rememberSiteTag" : {
+      "message" : "Remember site tag"
+   },
+   "requireDigit" : {
+      "message" : "At least one digit"
+   },
+   "requirements" : {
+      "message" : "Requirements"
+   },
+   "requireMixedCase" : {
+      "message" : "Both upper and lower-case letters"
+   },
+   "requirePunctuation" : {
+      "message" : "At least one punctuation character"
+   },
+   "restrictDigits" : {
+      "message" : "Digits only"
+   },
+   "restrictions" : {
+      "message" : "Restrictions"
+   },
+   "restrictSpecial" : {
+      "message" : "No special characters"
+   },
+   "save" : {
+      "message" : "Save"
+   },
+   "settings" : {
+      "message" : "Settings"
+   },
+   "sha3" : {
+      "message" : "New algorithm"
+   },
+   "siteTag" : {
+      "message" : "Site tag"
+   },
+   "size" : {
+      "message" : "Size"
+   },
+   "unmask" : {
+      "message" : "Unmask"
+   }
+}

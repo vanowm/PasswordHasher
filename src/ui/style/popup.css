@@ -1,0 +1,482 @@
+:root {
+  transition: opacity 0.25s ease-out;
+}
+:root.notloaded {
+  opacity: 0;
+}
+body
+{
+	padding: 0.5em;
+	margin: 0;
+	user-select: none;
+	font-size: 14px;
+}
+
+table,
+form
+{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+}
+
+td
+{
+	white-space: nowrap;
+}
+
+form
+{
+	/*position: relative;*/
+	/*margin-bottom: 3em;*/
+}
+button
+{
+	text-align: center;
+	font-size: 0.9em;
+	line-height: 1.5em;
+	padding: 0.2em 0.5em;
+}
+
+input[type=checkbox]
+{
+	vertical-align: baseline;
+	margin: 0 3px 0 0;
+}
+
+select
+{
+  font-size: inherit;
+}
+
+
+
+/*checkbox*/
+input[type=checkbox]{
+	width: 1em;
+	font-size: inherit;
+	margin: auto;
+  vertical-align: middle;
+  transform: translateX(-9999999999px);
+}
+input[type=checkbox]:before
+{
+	position: absolute;
+	content: '';
+	left: 0;
+	top: 0;
+	width: 1em;
+	height: 1em;
+	margin: auto;
+	border:none;
+	border-radius: 10%;
+	text-align: center;
+	line-height: 1;
+	transform: translateX(9999999999px);
+  border: 0.1em solid #bbbbbb;
+}
+input[type=checkbox]:before
+{
+}
+/*checked*/
+input[type=checkbox]:checked:before{
+	content: "\2713";
+	background-color: #3b88fd;
+	color: white;
+}
+/*focused*/
+input[type=checkbox]:focus:before{
+	border: 0.1em solid #8eb9fb;
+	box-shadow: 0 0 0.2em #3b88fd;
+}
+
+
+
+.list > *
+{
+	vertical-align: top;
+}
+
+.group > *,
+.list td > *
+{
+	display: block;
+}
+
+.bottom
+{
+	/*position: absolute;*/
+	/*bottom: -3em;*/
+	/*right: 0;*/
+	/*display: block;*/
+	padding: 0;
+	/*margin: 0.3em;*/
+	/*width: 100%;*/
+	text-align: right;
+	vertical-align: bottom;
+	/*white-space: nowrap;*/
+	/*float: right;*/
+}
+
+.bottom input:not([type=checkbox])
+{
+	width: 9em;
+}
+
+.bottom > button
+{
+	min-width: 6em;
+	margin: 0.5em 0.3em 0.3em 0.3em;
+}
+
+.main tr:not(:last-of-type) > td
+{
+	padding: 0 0 0.3em 0;
+	vertical-align: middle;
+}
+
+.main td:nth-child(3) > *
+{
+	width: 100%;
+}
+
+.main td:nth-child(3)
+{
+	width: 100%;
+	display: inline-table;
+}
+
+.main tr > td:first-of-type
+{
+	text-align: right;
+	vertical-align: middle;
+	line-height: 1em;
+	padding-right: 0.5em;
+}
+.main td:first-of-type > span
+{
+	vertical-align: text-top;
+}
+.main tr:last-of-type > td:first-of-type
+{
+	vertical-align: top;
+	padding-top: 0.5em;
+}
+
+.main tr > td:last-of-type:not(.domain)
+{
+	padding-left: 0.7em;
+}
+
+.main td:last-of-type button
+{
+	width: 100%;
+	display: block;
+}
+
+.main input:not([type=checkbox])
+{
+	line-height: 1.5em;
+}
+
+input:not([type=checkbox])
+{
+	font-size: 1em;
+}
+
+
+.group
+{
+	border: 1px solid rgba(127,127,127,0.5);
+	margin-top: 0.5em;
+	position: relative;
+	padding: 0.4em 0.5em 0.5em 0.5em;
+	display: inline-block;
+}
+.group.grid
+{
+	margin-right: 0.5em;
+}
+
+.group.down
+{
+	margin-bottom: 1em;
+}
+.group legend
+{
+	font-size: 0.9em;
+	padding: 0 0.5em;
+}
+
+.group > *
+{
+	margin: 0.2em 0
+}
+
+#hashWordSize
+{
+	width: 4em;
+}
+
+.error
+{
+	box-shadow: 0 0 0.5em pink;
+}
+
+[encrypted="true"]
+{
+	box-shadow: 0 0 0.5em DarkBlue;
+}
+
+.saved
+{
+	box-shadow: 0 0 0.5em lightgreen;
+}
+
+@keyframes flash {
+  0%   { box-shadow: 0 0 1em transparent; }
+  50%   { box-shadow: 0 0 1em Green; }
+  100%   { box-shadow: 0 0 1em transparent; }
+}
+
+#hashWord
+{
+  width: 100%;
+	min-height: 4em;
+	min-width: 19em;
+	resize: none;
+	font-family: Consolas, fixed, monospace;
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.25em;
+	padding: 0 0 0 0.3em;
+	margin: 0 -0.5em 0 0;
+}
+
+
+@-moz-document url-prefix()
+{
+	#hashWord
+	{
+		padding: 0 0.3em 0 0.3em;
+		min-width: 20.7em;
+		margin: 0;
+	}
+}
+#hashWord.flash
+{
+	animation-name: flash;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+td.info,
+td[title] > [type=checkbox],
+[type=checkbox][title],
+.info[disabled]
+{
+	cursor: help;
+}
+
+.grid
+{
+	display: grid;
+}
+
+#masterKey
+{
+
+}
+
+.masterKey
+{
+	display: flex;
+}
+
+.masterPass
+{
+	/*width: 28%;*/
+	display: inline-block;
+	height: 1.5em;
+	/*float: right;*/
+}
+
+/*body.hashWordSaved #encryptPass:placeholder-shown
+{
+	background-color: #CBF8CB;
+	color: black;
+}
+*/
+#encryptPass
+{
+/*	height: 1.0em;*/
+	width: 10em;
+}
+#encryptPass:placeholder-shown ~ #encryptSubmit
+{
+}
+
+#encryptSubmit
+{
+	height: 2em;
+	width: 1.5em;
+	padding: 0;
+	margin: 0;
+}
+
+#restrictPunctuation
+{
+	margin: 0 0 0.5em 1.5em;
+	display: flex;
+	max-width: 15em;
+	flex-wrap: wrap;
+	line-height: 1.5em;
+}
+
+#restrictPunctuation > .checkbox
+{
+	-moz-appearance: none;
+	cursor: pointer;
+	padding: 0;
+	margin: 1px 1px 0 0;
+	width: 1.5em;
+	height: 1.5em;
+	text-align: center;
+	font-family: "Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+	font-size: 0.9em;
+	color: gray;
+	outline: 1px solid gray;
+	background-color: silver;
+	box-shadow: 0 0 0.5em gray;
+}
+
+#restrictPunctuation[disabled] > .checkbox
+{
+	opacity: 0.5;
+	cursor: initial;
+	pointer-events: none;
+}
+
+
+#restrictPunctuation > .checkbox:focus
+{
+	outline: thin dotted red;
+	z-index: 1;
+}
+
+#restrictPunctuation > .checkbox:not([disabled]):hover
+{
+	background-color: DimGray;
+	color: white;
+}
+
+#restrictPunctuation > .checkbox:not([disabled])[checked]:hover
+{
+	background-color: #69B955;
+	color: white;
+}
+
+#restrictPunctuation > .checkbox .checkbox-check
+{
+	display: none;
+}
+
+#restrictPunctuation > .checkbox[_checked="true"],
+#restrictPunctuation > .checkbox[checked]:not([_checked])
+{
+	background-color: #9EE09E;
+	color: black;
+	box-shadow: 0 0 0.5em silver;
+}
+
+.bottom > span > *
+{
+	margin-left: 0.5em;
+}
+
+[checkbox],
+[type=checkbox]
+{
+	cursor: pointer;
+}
+
+[disabled],
+[checkbox][disabled],
+[type=checkbox][disabled]
+{
+	cursor: default;
+	pointer-events: none;
+}
+
+[disabled]>*:not([type=checkbox])
+{
+	opacity: 0.7;
+}
+
+.showpass
+{
+	position: relative;
+}
+.showpass:after
+{
+	position: absolute;
+	left: -1.5em;
+	top: -0.1em;
+	height: 1.8em;
+	width: 1.5em;
+	fill: red;
+	content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -6 32 32"><defs/><path fill="currentColor" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" /></svg>');
+	opacity: 0.5;
+	cursor: pointer;
+}
+textarea + .showpass:after
+{
+	top: -0.7em;
+	left: -1em;
+}
+@-moz-document url-prefix() {
+	textarea + .showpass:after
+	{
+		top: -0.2em;
+		left: -1.5em;
+	}
+}
+[type=password] + .showpass:after
+{
+	content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -6 32 32"><defs/><path fill="currentColor" d="M11.83,9L15,12.16C15,12.11 15,12.05 15,12A3,3 0 0,0 12,9C11.94,9 11.89,9 11.83,9M7.53,9.8L9.08,11.35C9.03,11.56 9,11.77 9,12A3,3 0 0,0 12,15C12.22,15 12.44,14.97 12.65,14.92L14.2,16.47C13.53,16.8 12.79,17 12,17A5,5 0 0,1 7,12C7,11.21 7.2,10.47 7.53,9.8M2,4.27L4.28,6.55L4.73,7C3.08,8.3 1.78,10 1,12C2.73,16.39 7,19.5 12,19.5C13.55,19.5 15.03,19.2 16.38,18.66L16.81,19.08L19.73,22L21,20.73L3.27,3M12,7A5,5 0 0,1 17,12C17,12.64 16.87,13.26 16.64,13.82L19.57,16.75C21.07,15.5 22.27,13.86 23,12C21.27,7.61 17,4.5 12,4.5C10.6,4.5 9.26,4.75 8,5.2L10.17,7.35C10.74,7.13 11.35,7 12,7Z" /></svg>');
+}
+
+[showpass].password + .showpass:hover:after,
+[showpass]:not(.password) + .showpass:hover:after
+{
+	opacity: 1;
+}
+
+#title
+{
+	font-weight: bold;
+}
+
+@media (prefers-color-scheme: dark)
+{
+  :root
+  {
+    color-scheme: dark;
+  }
+  body
+  {
+    background-color: #4A4A4A;
+    color: silver;
+    fill: silver;
+    stroke: silver;
+  }
+
+  .showpass:after
+  {
+    content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -6 32 32"><defs/><path fill="silver" d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z" /></svg>');
+  }
+  [type=password] + .showpass:after
+  {
+  	content: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -6 32 32"><defs/><path fill="silver" d="M11.83,9L15,12.16C15,12.11 15,12.05 15,12A3,3 0 0,0 12,9C11.94,9 11.89,9 11.83,9M7.53,9.8L9.08,11.35C9.03,11.56 9,11.77 9,12A3,3 0 0,0 12,15C12.22,15 12.44,14.97 12.65,14.92L14.2,16.47C13.53,16.8 12.79,17 12,17A5,5 0 0,1 7,12C7,11.21 7.2,10.47 7.53,9.8M2,4.27L4.28,6.55L4.73,7C3.08,8.3 1.78,10 1,12C2.73,16.39 7,19.5 12,19.5C13.55,19.5 15.03,19.2 16.38,18.66L16.81,19.08L19.73,22L21,20.73L3.27,3M12,7A5,5 0 0,1 17,12C17,12.64 16.87,13.26 16.64,13.82L19.57,16.75C21.07,15.5 22.27,13.86 23,12C21.27,7.61 17,4.5 12,4.5C10.6,4.5 9.26,4.75 8,5.2L10.17,7.35C10.74,7.13 11.35,7 12,7Z" /></svg>');
+  }
+}

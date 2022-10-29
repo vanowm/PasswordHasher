@@ -1,0 +1,199 @@
+<html>
+<head>
+<meta charset="utf-8">
+<!--
+/* ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Password Hasher Plus
+ *
+ * The Initial Developer of the Original Code is Eric Woodruff.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s): Oren Ben-Kiki
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+-->
+<title>Password Hasher Plus - Options</title>
+<script type="text/javascript" src="lib/tld.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="storage.js"></script>
+<script type="text/javascript" src="storagearea.js"></script>
+<script type="text/javascript" src="options.js"></script>
+<link rel="stylesheet" href="ui.css"/>
+<link rel="stylesheet" href="options.css"/>
+</head>
+
+<body>
+<p>
+<h3><a href="javascript:void(0)" id="portablePage" title="passhashplus.html">Portable HTML Page</a></h3>
+</p>
+<div>
+	<table border="0">
+		<tr><td colspan="2">
+		<h4>Use Firefox Account to sync settings</h4>
+		</td></tr>
+		<tr><td colspan="2">
+		If you change the dropdown below and click &quot;save&quot;,
+		your options, tags, and URLs will be stored or reloaded from
+		the selected storage.
+		</td></tr>
+		<tr id="syncsetting">
+			<td colspan="2">
+				<select class="browser-style" id="sync">
+					<option value="0">Do not sync settings</option>
+					<option value="1">Sync settings</option>
+				</select>
+				<select class="browser-style" id="sync-options">
+					<option value="0">Use existing settings</option>
+					<option value="1">Overwrite existing settings</option>
+					<option value="2">Merge local and sync settings &ndash; give preference to local version</option>
+					<option value="3">Merge local and sync settings &ndash; give preference to sync version</option>
+				</select>
+				<button class="browser-style" id="syncSave">Save</button>
+			</td>
+		</tr>
+                <tr>
+                        <td colspan="2"><hr/></td>
+                </tr>
+		<tr><td colspan="2">
+		<h4>Options</h4>
+		</td></tr>
+		<tr>
+			<td class="label">Default Password Length:</td>
+			<td><select class="browser-style" id="length">
+				<option value="2">2</option>
+				<option value="4">4</option>
+				<option value="6">6</option>
+				<option value="8">8</option>
+				<option value="10">10</option>
+				<option value="12">12</option>
+				<option value="14">14</option>
+				<option value="16">16</option>
+				<option value="18">18</option>
+				<option value="20">20</option>
+				<option value="22">22</option>
+				<option value="24">24</option>
+				<option value="26">26</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td class="label">Default Password Strength:</td>
+			<td><select class="browser-style" id="strength">
+				<option value="2">Alphanumeric+Special</option>
+				<option value="1">Alphanumeric</option>
+				<option value="0">Numeric</option>
+				<option value="-1">Custom</option>
+			</select></td>
+		</tr>
+		<tr id="customstrengthrow" class="hidden">
+			<td  class="label">Custom Strength Options:</td>
+			<td><div id="strength-restrictions" class="browser-style form-group"><ul>
+				<h4>Requirements</h4>
+				<li class="browser-style"><input type="checkbox" id="d" checked="true"/><label for="d">At least one digit</label></li>
+				<li class="browser-style"><input type="checkbox" id="p" checked="true"/><label for="p">At least on punctuation character</label></li>
+				<li class="browser-style"><input type="checkbox" id="m" checked="true"/><label for="m">Both upper- and lower-case letters</label></li>
+				<h4>Restrictions</h4>
+				<li class="browser-style"><input type="checkbox" id="r"/><label for="r">No special characters</label></li>
+			</ul></div> </td>
+		</tr>
+		<tr>
+			<td class="label">Hash Shortcut:</td>
+			<td class="browser-style">
+					<input type="text" id="hashkey" size="48"/>
+					<button class="browser-style" id="haskeydefault" type="button">Default (Ctrl+#)</button>
+			</td>
+		</tr>
+		<tr>
+			<td class="label">Mask Shortcut:</td>
+			<td>
+				<div class="browser-style">
+					<input id="maskkey" type="text" size="48"/>
+					<button class="browser-style" id="maskkeydefault" type="button">Default (Ctrl+*)</button>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="label">Compatibility Mode</td>
+			<td>
+				<div class="browser-style">
+				<input id="compatibility" type="checkbox"/><label for="compatibility">Use compatibility mode (less secure).</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="label">Show Mask Button</td>
+			<td>
+				<div class="browser-style">
+				<input id="maskbutton" type="checkbox"/><label for="maskbutton">Show the mask button next to password fields.</label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="label">Private Key:</td>
+			<td>
+				<div class="browser-style">
+					<input id="seed" type="text" size="48" maxlength="45"/>
+					<button class="browser-style" id="generate" value="Generate">Generate</button>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="label">Backup:</td>
+			<td>
+				<div class="browser-style">
+				<input id="backedup" type="checkbox"/><label for="backedup">I have backed up my private key.</label>
+				</div>
+				<b>Note: You must backup this key and keep it safe and secure in case you need to restore it in the future.</b><br/>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+                        <td>
+                                <button class="browser-style" id="backupSave">Save</button>
+			        <button class="browser-style" id="backupRevert">Revert</button>
+			        <button class="browser-style" id="removeUnUsedTags">Remove Unused Tags</button>
+			</td>
+		</tr>
+                <tr>
+                        <td colspan="2"><hr/></td>
+                </tr>
+		<tr><td colspan="2">
+		<h4>Database dump for backup</h4>
+		</td></tr>
+                <tr>
+                        <td colspan="2">
+				<textarea class="browser-style" id="everything" cols="100" rows="40"></textarea>
+				<br/>
+				<button class="browser-style" id="dbClear">Clear</button>
+				<button class="browser-style" id="dbSave">Save</button>
+				<button class="browser-style" id="dbRevert">Revert</button>
+                        </td>
+                </tr>
+	</table>
+</div>
+</body>
+</html>
